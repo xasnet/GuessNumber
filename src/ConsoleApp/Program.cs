@@ -38,19 +38,19 @@ The number of attempts is {curGame.Count}:");
         switch (curGame.Flag)
         {
             case GameFlag.Win:
-                Console.WriteLine($"ВЫ ПОБЕДИЛИ!!! Число {curNum}");
+                Console.WriteLine($"YOU ARE WIN!!! THE NUMBER IS {curNum}");
                 isPlay = false;
                 break;
             case GameFlag.Fail:
-                Console.WriteLine($"Вы проиграли. Загаданное число было {curGame.Num}");
+                Console.WriteLine($"You are lose. The number is {curGame.Num}");
                 isPlay = false;
                 break;
             case GameFlag.Less:
-                Console.WriteLine($"Число {curNum} МЕНЬШЕ отгадываемого");
+                Console.WriteLine($"The numer {curNum} is less then guess number");
                 isPlay = true;
                 break;
             case GameFlag.More:
-                Console.WriteLine($"Число {curNum} БОЛЬШЕ отгадываемого");
+                Console.WriteLine($"The number {curNum} is more then guess number");
                 isPlay = true;
                 break;
             default:
