@@ -12,47 +12,61 @@ public class GameLogic : IGameLogic
         _curGame = curGame;
     }
 
-    public IGame Start()
+    public void Start()
     {
-        return _curGame;
+        Console.WriteLine();
+        Console.WriteLine("<<< Guess The Number! >>>");
+        Console.WriteLine("--> New game starting... >>>");
+        Console.WriteLine();
     }
 
-    public IGame Play(int curNum)
+    public void Play()
     {
-        _curGame.Count--;
+        while (true)
+        {
 
-        if (_curGame.Count > 0)
-        {
-            if (curNum > _curGame.Num)
+            Console.WriteLine(@$"Enter the number between {_curGame.MinVal} and {_curGame.MaxVal}.
+The number of attempts is {_curGame.Count}:        {_curGame.Num}");
+
+            var curNumStr = Console.ReadLine()!;
+
+            if (curNumStr.Any(char.IsLetter))
             {
-                _curGame.State = GameState.More;
-                return _curGame;
+                Console.WriteLine($"Enter correct number!");
+                continue;
             }
-            else if (curNum < _curGame.Num)
-            {
-                _curGame.State = GameState.Less;
-                return _curGame;
-            }
-            else
-            {
-                _curGame.State = GameState.Win;
-                return _curGame;
-            }
-        }
-        else
-        {
+
+            var curNum = Convert.ToInt32(curNumStr);
+
+            _curGame.Count--;
+
             if (curNum == _curGame.Num)
             {
                 _curGame.State = GameState.Win;
-                return _curGame;
+                Console.WriteLine($"YOU ARE WIN!!! THE NUMBER IS {curNum}");
+                break;
+
+            }
+
+            if (_curGame.Count > 0)
+            {
+                if (curNum > _curGame.Num)
+                {
+                    _curGame.State = GameState.More;
+                    Console.WriteLine($"The number {curNum} is more than guess number");
+                }
+                else
+                {
+                    _curGame.State = GameState.Less;
+                    Console.WriteLine($"The number {curNum} is less than guess number");
+                }
             }
             else
             {
                 _curGame.State = GameState.Fail;
-                return _curGame;
+                Console.WriteLine($"You are lose. The number is {_curGame.Num}");
+                break;
             }
         }
     }
-
-    public
 }
