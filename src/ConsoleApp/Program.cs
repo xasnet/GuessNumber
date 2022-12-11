@@ -35,22 +35,22 @@ The number of attempts is {curGame.Count}:");
 
         curGame = serviceGame!.Play(Convert.ToInt32(curNum));
 
-        switch (curGame.Flag)
+        switch (curGame.State)
         {
-            case GameFlag.Win:
+            case GameState.Win:
                 Console.WriteLine($"YOU ARE WIN!!! THE NUMBER IS {curNum}");
                 isPlay = false;
                 break;
-            case GameFlag.Fail:
+            case GameState.Fail:
                 Console.WriteLine($"You are lose. The number is {curGame.Num}");
                 isPlay = false;
                 break;
-            case GameFlag.Less:
-                Console.WriteLine($"The numer {curNum} is less then guess number");
+            case GameState.Less:
+                Console.WriteLine($"The number {curNum} is less than guess number");
                 isPlay = true;
                 break;
-            case GameFlag.More:
-                Console.WriteLine($"The number {curNum} is more then guess number");
+            case GameState.More:
+                Console.WriteLine($"The number {curNum} is more than guess number");
                 isPlay = true;
                 break;
             default:
@@ -69,7 +69,6 @@ The number of attempts is {curGame.Count}:");
         if ((cmd != "Y") && (cmd != "N"))
         {
             Console.WriteLine("Enter correct command of : Y:(Yes), N:(No)");
-            continue;
         }
         else if (cmd == "Y")
         {
@@ -78,8 +77,6 @@ The number of attempts is {curGame.Count}:");
         else
         {
             return;
-            break;
         }
     }
-
 }

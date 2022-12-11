@@ -1,5 +1,4 @@
-﻿using ConsoleApp.Configuration;
-using ConsoleApp.Enums;
+﻿using ConsoleApp.Enums;
 
 namespace ConsoleApp.Models;
 
@@ -13,15 +12,15 @@ public class Game : IGame
 
     public int Num { get; }
 
-    public GameFlag Flag { get; set; }
+    public GameState State { get; set; }
 
-    public Game(int minValm, int maxVal, int count, GameFlag flag)
+    public Game(int minVal, int maxVal, int count, GameState state)
     {
-        MinVal = minValm;
+        MinVal = minVal;
         MaxVal = maxVal;
         Count = count;
-        Num = Generate(minValm, maxVal);
-        Flag = flag;
+        Num = Generate(minVal, maxVal);
+        State = state;
     }
 
     private static int Generate(int minVal, int maxVal)

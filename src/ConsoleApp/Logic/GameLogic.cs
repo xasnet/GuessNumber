@@ -25,17 +25,17 @@ public class GameLogic : IGameLogic
         {
             if (curNum > _curGame.Num)
             {
-                _curGame.Flag = GameFlag.More;
+                _curGame.State = GameState.More;
                 return _curGame;
             }
             else if (curNum < _curGame.Num)
             {
-                _curGame.Flag = GameFlag.Less;
+                _curGame.State = GameState.Less;
                 return _curGame;
             }
             else
             {
-                _curGame.Flag = GameFlag.Win;
+                _curGame.State = GameState.Win;
                 return _curGame;
             }
         }
@@ -43,14 +43,16 @@ public class GameLogic : IGameLogic
         {
             if (curNum == _curGame.Num)
             {
-                _curGame.Flag = GameFlag.Win;
+                _curGame.State = GameState.Win;
                 return _curGame;
             }
             else
             {
-                _curGame.Flag = GameFlag.Fail;
+                _curGame.State = GameState.Fail;
                 return _curGame;
             }
         }
     }
+
+    public
 }

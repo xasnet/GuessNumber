@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApp.Enums;
 
-public enum GameFlag
+public enum GameState
 {
     Play = 0,
     Win = 1,
