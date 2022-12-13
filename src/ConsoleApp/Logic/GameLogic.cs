@@ -18,10 +18,18 @@ public class GameLogic : IGameLogic
         Console.WriteLine("<<< Guess The Number! >>>");
         Console.WriteLine("--> New game starting... >>>");
         Console.WriteLine();
+
+        _curGame.State = GameState.Play;
     }
 
     public void Play()
     {
+        if (_curGame.State != GameState.Play)
+        {
+            Console.WriteLine(@"Game ""Guess The Number"" has incorrect state");
+            return;
+        };
+
         while (true)
         {
 

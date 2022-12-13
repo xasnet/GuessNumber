@@ -21,7 +21,7 @@ public static class AppService
         var serviceProvider = new ServiceCollection()
             .AddTransient<IGameLogic, GameLogic>()
             .AddTransient<IGame>(sp =>
-                new Game(gameConfig!.MinVal, gameConfig.MaxVal, gameConfig.Count, GameState.Play))
+                new Game(gameConfig!.MinVal, gameConfig.MaxVal, gameConfig.Count, GameState.Undefined))
             .BuildServiceProvider();
 
         return serviceProvider;

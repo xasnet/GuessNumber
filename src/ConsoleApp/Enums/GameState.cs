@@ -2,9 +2,10 @@
 
 public enum GameState
 {
-    Play = 0,
-    Win = 1,
-    Fail = 2,
-    Less = 3,
-    More = 4
+    Undefined = 0,
+    Play = 1,
+    Win = 2,
+    Fail = 3,
+    Less = 4,
+    More = 5
 }
